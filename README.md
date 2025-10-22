@@ -179,7 +179,7 @@ Create and configure a Fabric Data Agent that can intelligently query the e-comm
    e-commerce
    ```
 
-14. Select **e-commerce-order-dataset** (Type: Semantic Model) from the results.
+14. Select **ecommerce-order-dataset** (Type: Semantic Model) from the results.
 
 15. Click **Add** to connect the semantic model.
 
@@ -241,7 +241,7 @@ When using this meta-prompt, replace the variables:
 > [!IMPORTANT]
 > Always review generated instructions for accuracy and completeness. The meta-prompt provides a strong foundation but may need minor adjustments for your specific use case.
 
-22. Optional!!! If your model is not a semantic model and has multiple tables, generate data source instructions using:
+#### Optional meta prompt if your model is not a semantic model and has multiple tables, generate data source instructions using:
 
 ```
 Meta-Prompt: Generate Data Source Instructions
@@ -264,7 +264,7 @@ Terms: {CUSTOM_TERMINOLOGY}
 
 Replace `{DATA_SOURCE_NAME}` with "e-commerce-order-dataset"
 
-23. Test the enhanced agent with more complex queries:
+22. Test the enhanced agent with more complex queries:
    ```
    What's the average order value by customer segment?
    Which payment methods are most popular for high-value orders?
@@ -273,7 +273,7 @@ Replace `{DATA_SOURCE_NAME}` with "e-commerce-order-dataset"
 
 #### Publishing the Agent
 
-24. Generate the agent description using this meta-prompt:
+23. Generate the agent description using this meta-prompt:
 
 ```
 Meta-Prompt: Generate Agent Description
@@ -286,12 +286,12 @@ Example: "Fabric Data Agent for retail sales. Answers questions about revenue, p
 Output plain text only.
 ```
 
-25. Click **Publish** and paste the generated description in the purpose and capabilities field.
+24. Click **Publish** and paste the generated description in the purpose and capabilities field.
 
 > [!IMPORTANT]
 > Save this description separately as you'll need it when connecting to Copilot Studio in Use Case #2.
 
-26. Complete the publishing process.
+25. Complete the publishing process.
 
 ---
 
@@ -357,39 +357,49 @@ In this section, you'll learn how to create a Copilot Studio agent, establish co
 
 6. Click **Create** in the top-right corner.
 
+##### Change default orchestration model to GPT-4.1 or Claud Sonnet 4.5
+
+7.  Click **Settings** in the top-right corner.
+
+8.  Under **Model**, select either GPT-4.1 or Claud Sonnet 4.5
+
+9.  Click **Save**, in the bottom right corner
+
+10.  Click **X**, in the top right corner after it’s saved
+
 #### Establishing A2A Connection
 
-7. After agent creation, navigate to the **Agents** tab in the top menu (next to Overview).
+11. After agent creation, navigate to the **Agents** tab in the top menu (next to Overview).
 
-8. Click the blue **Add** button.
+12. Click the blue **Add** button.
 
-9. Scroll down and select **Microsoft Fabric**.
+13. Scroll down and select **Microsoft Fabric**.
 
-10. Verify your connection shows your username, then click **Next**.
+14. Verify your connection shows your username, then click **Next**.
 
-11. Select your Fabric Data Agent:
+15. Select your Fabric Data Agent:
     - Look for the agent name you created in Use Case #1
     - Verify the owner matches your username
     - Click to select it
 
-12. Click **Next** to proceed.
+16. Click **Next** to proceed.
 
-13. Configure the connected agent:
+17. Configure the connected agent:
     - **Name**: `Fabric Data Agent for E-commerce`
     - **Description**: Paste the description you saved from the meta-prompt in Use Case #1
 
-14. Verify the connection shows a green checkmark.
+18. Verify the connection shows a green checkmark.
 
-15. Click **Add agent** to complete the connection.
+19. Click **Add agent** to complete the connection.
 
 > [!TIP]
 > The description you provide here is crucial—it helps the Copilot Studio agent understand when to delegate queries to the Fabric agent.
 
 #### Testing A2A Communication
 
-16. Return to the **Test** pane in Copilot Studio.
+20. Return to the **Test** pane in Copilot Studio.
 
-17. Test the A2A connection with progressive queries:
+21. Test the A2A connection with progressive queries:
 
 **Simple query to verify connection:**
 ```
@@ -411,22 +421,16 @@ Analyze our quarterly sales performance and identify which product categories ar
 Based on our sales data, what products should we promote next month and why?
 ```
 
-18. Observe in the test pane that queries trigger the A2A protocol, indicated by messages showing delegation to the Fabric Data Agent.
+22. Observe in the test pane that queries trigger the A2A protocol, indicated by messages showing delegation to the Fabric Data Agent.
 
 > [!IMPORTANT]
 > Successful A2A communication is confirmed when you see explicit handoff messages in the execution trace showing your Copilot Studio agent calling the Fabric Data Agent.
 
 #### Optional Enhancements
 
-19. **Model Selection** (Optional): Navigate to agent settings and experiment with different models:
-    - GPT-4 (default)
-    - GPT-4 Turbo
-    - GPT-5 (if available)
-    - Claude Sonnet (if available)
+23. **Code Interpreter** (Optional): Enable Code Interpreter in settings to allow the agent to generate visualizations from Fabric data.
 
-20. **Code Interpreter** (Optional): Enable Code Interpreter in settings to allow the agent to generate visualizations from Fabric data.
-
-21. **Knowledge Sources** (Optional): Add relevant e-commerce best practices or business rules as knowledge sources to enhance response quality.
+24. **Knowledge Sources** (Optional): Add relevant e-commerce best practices or business rules as knowledge sources to enhance response quality.
 
 ---
 
