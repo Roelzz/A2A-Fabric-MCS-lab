@@ -176,7 +176,7 @@ Create and configure a Fabric Data Agent that can intelligently query the e-comm
 
 13. In the OneLake catalog, use the search filter and type:
    ```
-   e-commerce
+   Ecommerce
    ```
 
 14. Select **ecommerce-order-dataset** (Type: Semantic Model) from the results.
