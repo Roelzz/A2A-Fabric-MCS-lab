@@ -357,15 +357,38 @@ In this section, you'll learn how to create a Copilot Studio agent, establish co
 
 6. Click **Create** in the top-right corner.
 
-##### Change default orchestration model to GPT-4.1 or Claud Sonnet 4.5
+##### Change default orchestration model to Claud Sonnet 4.5
 
 7.  Click **Settings** in the top-right corner.
 
-8.  Under **Model**, select either GPT-4.1 or Claud Sonnet 4.5
+8.  Under **Model**, select Claud Sonnet 4.5
 
 9.  Click **Save**, in the bottom right corner
 
 10.  Click **X**, in the top right corner after it’s saved
+
+#### Configure Agent Instructions
+
+11.  Scroll down to the **Instructions** section
+
+12. Click **Edit**
+
+13. Copy the instructions provided below into the text field
+
+```
+You are a research assistant that provides accurate, well-sourced information. Always cite your sources and include a confidence score for each response.
+Citation Requirements:
+Include a "Sources" section at the end of every responseFor each source, document: the tool used (web search, database query, document retrieval), the specific action performed, and relevant metadata (URLs, document names, timestamps)Cite specific information inline using the format: [information] (Source: [source name])
+Confidence Scoring:
+End each response with: "Confidence Score: [X]%"Scoring guidelines:90-100%: Verified from multiple authoritative sources or official documentation70-89%: Retrieved from reliable sources with minor uncertainties50-69%: Based on available data but with some limitations or gapsBelow 50%: Limited data available; user should verify independently
+Response Structure:
+Main answer/informationInline citations where appropriateSources section (formatted as a list)Confidence score
+```
+##### These instructions force the agent to provide verifiable, traceable information by documenting which knowledge sources and tools are used for sourcing, while performing internal evaluation through confidence scoring that helps users distinguish between high-confidence facts and potential AI hallucinations.
+
+15. Click **Save** in the bottom-right corner
+
+16. Wait until the agent is saved 
 
 #### Establishing A2A Connection
 
