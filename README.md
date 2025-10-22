@@ -291,8 +291,6 @@ Output plain text only.
 > [!IMPORTANT]
 > Save this description separately as you'll need it when connecting to Copilot Studio in Use Case #2.
 
-25. Complete the publishing process.
-
 ---
 
 ### 🎯 Congratulations! You've completed Use Case #1!
