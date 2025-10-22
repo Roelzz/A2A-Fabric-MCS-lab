@@ -341,7 +341,7 @@ In this section, you'll learn how to create a Copilot Studio agent, establish co
 
 1. Open a new browser tab and navigate to [copilotstudio.microsoft.com](https://copilotstudio.microsoft.com).
 
-2. Select your assigned environment from the left-hand menu.
+2. **Optional** If the environment in the top right corner in anything else than "ddev-[your username]" make sure to select the right "ddev-[your username]".
 
 3. In the left navigation, locate **Agents** and click the blue **New agent** button.
 
@@ -350,29 +350,8 @@ In this section, you'll learn how to create a Copilot Studio agent, establish co
 5. Configure your agent with these settings:
    - **Name**: `E-commerce RAG Agent`
    - **Description**: `An agent connected to a Microsoft Fabric data agent specializing in e-commerce business knowledge and support`
-   - **Instructions**: Leave blank for now
+   - **Instructions**: {Copy the instruction from the code block down below}
    - **Web search**: Deselect/disable this option
-
-6. Click **Create** in the top-right corner.
-
-##### Change default orchestration model to Claud Sonnet 4.5
-
-7.  Click **Settings** in the top-right corner.
-
-8.  Under **Model**, select Claud Sonnet 4.5
-
-9.  Click **Save**, in the bottom right corner
-
-10.  Click **X**, in the top right corner after it’s saved
-
-#### Configure Agent Instructions
-
-11.  Scroll down to the **Instructions** section
-
-12. Click **Edit**
-
-13. Copy the instructions provided below into the text field
-
 ```
 You are a research assistant that provides accurate, well-sourced information. Always cite your sources and include a confidence score for each response.
 Citation Requirements:
@@ -382,45 +361,61 @@ End each response with: "Confidence Score: [X]%"Scoring guidelines:90-100%: Veri
 Response Structure:
 Main answer/informationInline citations where appropriateSources section (formatted as a list)Confidence score
 ```
-##### These instructions force the agent to provide verifiable, traceable information by documenting which knowledge sources and tools are used for sourcing, while performing internal evaluation through confidence scoring that helps users distinguish between high-confidence facts and potential AI hallucinations.
+  ##### These instructions force the agent to provide verifiable, traceable information by documenting which knowledge sources and tools are used for sourcing, while performing internal evaluation through confidence scoring that helps users distinguish between high-confidence facts and potential AI hallucinations.
 
-15. Click **Save** in the bottom-right corner
+6. Click **Create** in the top-right corner.
 
-16. Wait until the agent is saved 
+##### Change default orchestration model to Claud Sonnet 4.5
+
+7.  Click **Settings** in the top-right corner.
+
+8.  Under **Model**, select Claud Sonnet 4.5
+
+ You might need to wait for the "This feature isn't available until your agent has finished setting up." to turn into "Your agent has been provisioned." and select select Claud Sonnet 4.5 again.
+
+10.  Click **Save**, in the bottom right corner
+
+11.  Click **X**, in the top right corner after it’s saved
 
 #### Establishing A2A Connection
 
-17. After agent creation, navigate to the **Agents** tab in the top menu (next to Overview).
+11. After agent creation, navigate to the **Agents** tab in the top menu (next to Overview).
 
-18. Click the blue **Add** button.
+12. Click the blue **Add** button.
 
-19. Scroll down and select **Microsoft Fabric**.
+13. Scroll down and select **Microsoft Fabric**.
 
-20. Verify your connection shows your username, then click **Next**.
+14. Verify your connection shows your username, then click **Next**.
 
-21. Select your Fabric Data Agent:
+15. Select your Fabric Data Agent:
     - Look for the agent name you created in Use Case #1
     - Verify the owner matches your username
     - Click to select it
 
-22. Click **Next** to proceed.
+16. Click **Next** to proceed.
 
-23. Configure the connected agent:
-    - **Name**: `Fabric Data Agent for E-commerce`
+17. Configure your connected agent:
+    - **Name**: `{Username}_DataAgent`  *Tip search for your username in the 'Filter by keyword' pane in the top right corner
     - **Description**: Paste the description you saved from the meta-prompt in Use Case #1
 
-24. Verify the connection shows a green checkmark.
+18. Verify the connection shows a green checkmark.
 
-25. Click **Add agent** to complete the connection.
+19. Click **Add agent** to complete the connection.
+
+* In some occurences you might see a "An unexpected server error occurred.There was a problem saving your changes"
+  If this is the case please select **Back**, reselect the right agent and click **Add agent**
 
 > [!TIP]
 > The description you provide here is crucial—it helps the Copilot Studio agent understand when to delegate queries to the Fabric agent.
 
 #### Testing A2A Communication
 
-26. Return to the **Test** pane in Copilot Studio.
+20. Return to the **Test** pane in Copilot Studio.
 
-27. Test the A2A connection with progressive queries:
+  * Don't forget to select **Allow** when this is asked the first time you'll be using the agent 'I'll use your credentials to connect and to get the information you're looking for.'
+  * Sometimes the first prompt responds with "Sorry, something went wrong...." - Don't worry just retry the intial prompt.
+
+22. Test the A2A connection with progressive queries:
 
 **Simple query to verify connection:**
 ```
@@ -442,16 +437,16 @@ Analyze our quarterly sales performance and identify which product categories ar
 Based on our sales data, what products should we promote next month and why?
 ```
 
-28. Observe in the test pane that queries trigger the A2A protocol, indicated by messages showing delegation to the Fabric Data Agent.
+22. Observe in the test pane that queries trigger the A2A protocol, indicated by messages showing delegation to the Fabric Data Agent.
 
 > [!IMPORTANT]
 > Successful A2A communication is confirmed when you see explicit handoff messages in the execution trace showing your Copilot Studio agent calling the Fabric Data Agent.
 
 #### Optional Enhancements
 
-29. **Code Interpreter** (Optional): Enable Code Interpreter in settings to allow the agent to generate visualizations from Fabric data.
+23. **Code Interpreter** (Optional): Enable Code Interpreter in settings to allow the agent to generate visualizations from Fabric data.
 
-30. **Knowledge Sources** (Optional): Add relevant e-commerce best practices or business rules as knowledge sources to enhance response quality.
+34. **Knowledge Sources** (Optional): Add relevant e-commerce best practices or business rules as knowledge sources to enhance response quality.
 
 ---
 
