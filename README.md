@@ -273,7 +273,7 @@ Replace `{DATA_SOURCE_NAME}` with "e-commerce-order-dataset"
 
 #### Publishing the Agent
 
-23. Generate the agent description using this meta-prompt:
+23. Generate the agent description using this meta-prompt inside the test pane of your Fabric Agent
 
 ```
 Meta-Prompt: Generate Agent Description
