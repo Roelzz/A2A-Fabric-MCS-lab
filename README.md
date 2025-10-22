@@ -392,37 +392,37 @@ Main answer/informationInline citations where appropriateSources section (format
 
 #### Establishing A2A Connection
 
-11. After agent creation, navigate to the **Agents** tab in the top menu (next to Overview).
+17. After agent creation, navigate to the **Agents** tab in the top menu (next to Overview).
 
-12. Click the blue **Add** button.
+18. Click the blue **Add** button.
 
-13. Scroll down and select **Microsoft Fabric**.
+19. Scroll down and select **Microsoft Fabric**.
 
-14. Verify your connection shows your username, then click **Next**.
+20. Verify your connection shows your username, then click **Next**.
 
-15. Select your Fabric Data Agent:
+21. Select your Fabric Data Agent:
     - Look for the agent name you created in Use Case #1
     - Verify the owner matches your username
     - Click to select it
 
-16. Click **Next** to proceed.
+22. Click **Next** to proceed.
 
-17. Configure the connected agent:
+23. Configure the connected agent:
     - **Name**: `Fabric Data Agent for E-commerce`
     - **Description**: Paste the description you saved from the meta-prompt in Use Case #1
 
-18. Verify the connection shows a green checkmark.
+24. Verify the connection shows a green checkmark.
 
-19. Click **Add agent** to complete the connection.
+25. Click **Add agent** to complete the connection.
 
 > [!TIP]
 > The description you provide here is crucial—it helps the Copilot Studio agent understand when to delegate queries to the Fabric agent.
 
 #### Testing A2A Communication
 
-20. Return to the **Test** pane in Copilot Studio.
+26. Return to the **Test** pane in Copilot Studio.
 
-21. Test the A2A connection with progressive queries:
+27. Test the A2A connection with progressive queries:
 
 **Simple query to verify connection:**
 ```
@@ -444,16 +444,16 @@ Analyze our quarterly sales performance and identify which product categories ar
 Based on our sales data, what products should we promote next month and why?
 ```
 
-22. Observe in the test pane that queries trigger the A2A protocol, indicated by messages showing delegation to the Fabric Data Agent.
+28. Observe in the test pane that queries trigger the A2A protocol, indicated by messages showing delegation to the Fabric Data Agent.
 
 > [!IMPORTANT]
 > Successful A2A communication is confirmed when you see explicit handoff messages in the execution trace showing your Copilot Studio agent calling the Fabric Data Agent.
 
 #### Optional Enhancements
 
-23. **Code Interpreter** (Optional): Enable Code Interpreter in settings to allow the agent to generate visualizations from Fabric data.
+29. **Code Interpreter** (Optional): Enable Code Interpreter in settings to allow the agent to generate visualizations from Fabric data.
 
-24. **Knowledge Sources** (Optional): Add relevant e-commerce best practices or business rules as knowledge sources to enhance response quality.
+30. **Knowledge Sources** (Optional): Add relevant e-commerce best practices or business rules as knowledge sources to enhance response quality.
 
 ---
 
