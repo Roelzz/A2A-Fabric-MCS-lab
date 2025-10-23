@@ -206,9 +206,9 @@ Create and configure a Fabric Data Agent that can intelligently query the e-comm
 
 #### Optimizing with Meta-Prompts
 
-19. In the **Setup** section, locate the **Instructions** field.
+19. In the **Setup** section, locate the **Agent instructions** field. (Alternatively, you can also locate the **Agent instructions** in the navigation bar on the top.) 
 
-20. Generate agent-level instructions using this meta-prompt in the test pane:
+20. Generate agent-level instructions using this meta-prompt in the **test pane** (on the right where it says **Test the agent's responses**):
 
 ```
 Meta-Prompt: Generate Agent-Level Instructions:
@@ -230,7 +230,7 @@ Style: {RESPONSE_STYLE}
 Custom terms: {CUSTOM_TERMINOLOGY}
 ```
 
-When using this meta-prompt, replace the variables:
+When using this meta-prompt, replace the variables manually in the prompt as per the values below **OR** paste these in the Test :
 - `{AGENT_OBJECTIVE}`: "E-commerce analytics agent for business intelligence"
 - `{USER_PERSONA}`: "Business analysts and sales teams"
 - `{RESPONSE_STYLE}`: "Clear summaries with data citations and trend analysis"
@@ -354,12 +354,32 @@ In this section, you'll learn how to create a Copilot Studio agent, establish co
    - **Web search**: Deselect/disable this option
 ```
 You are a research assistant that provides accurate, well-sourced information. Always cite your sources and include a confidence score for each response.
+
 Citation Requirements:
-Include a "Sources" section at the end of every responseFor each source, document: the tool used (web search, database query, document retrieval), the specific action performed, and relevant metadata (URLs, document names, timestamps)Cite specific information inline using the format: [information] (Source: [source name])
+Include a "Sources" section at the end of every response
+
+For each source, document:
+ - the tool used (web search, database query, document retrieval),
+ - the specific action performed,
+ - and relevant metadata (URLs, document names, timestamps)
+
+Cite specific information inline using the format: [information] (Source: [source name])
+
 Confidence Scoring:
-End each response with: "Confidence Score: [X]%"Scoring guidelines:90-100%: Verified from multiple authoritative sources or official documentation70-89%: Retrieved from reliable sources with minor uncertainties50-69%: Based on available data but with some limitations or gapsBelow 50%: Limited data available; user should verify independently
+End each response with: "Confidence Score: [X]%"
+
+Scoring guidelines:
+90-100%: Verified from multiple authoritative sources or official documentation
+70-89%: Retrieved from reliable sources with minor uncertainties
+50-69%: Based on available data but with some limitations or gaps
+Below 50%: Limited data available; user should verify independently
+
 Response Structure:
-Main answer/informationInline citations where appropriateSources section (formatted as a list)Confidence score
+Main answer/information
+Inline citations where appropriate
+Sources section (formatted as a list)
+Confidence score
+
 ```
   ##### These instructions force the agent to provide verifiable, traceable information by documenting which knowledge sources and tools are used for sourcing, while performing internal evaluation through confidence scoring that helps users distinguish between high-confidence facts and potential AI hallucinations.
 
@@ -385,7 +405,7 @@ Main answer/informationInline citations where appropriateSources section (format
 
 13. Scroll down and select **Microsoft Fabric**.
 
-14. Verify your connection shows your username, then click **Next**.
+14. If it say's *Connection : Not connected* then click the drop down next to *Not connected* and select **Create new connection**. Click **Create** and sign in using the same account used for this lab. Verify it's showing as the email for your account, then click **Next**.
 
 15. Select your Fabric Data Agent:
     - Look for the agent name you created in Use Case #1
@@ -403,16 +423,18 @@ Main answer/informationInline citations where appropriateSources section (format
 19. Click **Add agent** to complete the connection.
 
 * In some occurences you might see a "An unexpected server error occurred.There was a problem saving your changes"
-  If this is the case please select **Back**, reselect the right agent and click **Add agent**
+  This is an intermittent issue, try to click on **Add agent** again to check if it works. If it doesn't work, please select **Back**, reselect the right agent and click **Add agent**.
 
 > [!TIP]
 > The description you provide here is crucial—it helps the Copilot Studio agent understand when to delegate queries to the Fabric agent.
 
 #### Testing A2A Communication
 
-20. Return to the **Test** pane in Copilot Studio.
+20. Once the agent is added, click on **> Additional details**. Under **Credentials to use** select **Maker-provided credentials**. This will allow the agent to use your credentials to access the Fabric Data Agent, if you keep it as **End user credentials**, then users will have to consent to connect to this agent using their credentials, when they first access your agent. Also you will have to ensure that all the users who this agent will be shared with have access to the source Data Agent within Fabric.   
 
-  * Don't forget to select **Allow** when this is asked the first time you'll be using the agent 'I'll use your credentials to connect and to get the information you're looking for.'
+21. Return to the **Test** pane in Copilot Studio.
+
+  * If you kept the **Credentials to use** as default (End user credentials), then don't forget to select **Allow** when this is asked the first time you'll be using the agent 'I'll use your credentials to connect and to get the information you're looking for.'
   * Sometimes the first prompt responds with "Sorry, something went wrong...." - Don't worry just retry the intial prompt.
 
 22. Test the A2A connection with progressive queries:
@@ -437,16 +459,16 @@ Analyze our quarterly sales performance and identify which product categories ar
 Based on our sales data, what products should we promote next month and why?
 ```
 
-22. Observe in the test pane that queries trigger the A2A protocol, indicated by messages showing delegation to the Fabric Data Agent.
+23. Observe in the test pane that queries trigger the A2A protocol, indicated by messages showing delegation to the Fabric Data Agent.
 
 > [!IMPORTANT]
 > Successful A2A communication is confirmed when you see explicit handoff messages in the execution trace showing your Copilot Studio agent calling the Fabric Data Agent.
 
 #### Optional Enhancements
 
-23. **Code Interpreter** (Optional): Enable Code Interpreter in settings to allow the agent to generate visualizations from Fabric data.
+24. **Code Interpreter** (Optional): Enable Code Interpreter in settings to allow the agent to generate visualizations from Fabric data.
 
-34. **Knowledge Sources** (Optional): Add relevant e-commerce best practices or business rules as knowledge sources to enhance response quality.
+25. **Knowledge Sources** (Optional): Add relevant e-commerce best practices or business rules as knowledge sources to enhance response quality.
 
 ---
 
